@@ -1,60 +1,55 @@
-package Compilador;
+package compilador;
 
-public class Token {
-	private String tipo;
-	private String nombre;
-	private int linea;
+public class Token 
+{
+	private int tipo;
+	final static int MODIFICADOR=0; 
+	final static int PALABRA_RESERVADA=1;
+	final static int TIPO_DATO=2;
+	final static int SIMBOLO=3;
+	final static int OPERADOR_LOGICO=4;
+	final static int OPERADOR_ARITMETICO=5;
+	final static int CONSTANTE=6;
+	final static int IDENTIFICADOR=7;
+	final static int CLASE=8;
+	final static int BOOLEAN=9;
+	final static int FLOAT=10;
+	
+	private final static String types[]= 
+	{
+	"Modificador",
+	"Palabra resevada",
+	"Tipo de dato",
+	"Simbolo",
+	"Operador logico",
+	"Operador aritmetico",
+	"Constante",
+	"Identificador",
+	"Declaracion de clase",
+	"Booleano",
+	"Float"
+	};
 	private String valor;
-
-	public Token() {
-		super();
-		// TODO Auto-generated constructor stub
+	private int linea;
+	public Token(String valor, int tipo, int linea) {
+		this.tipo=tipo;
+		this.valor=valor;
+		this.linea=linea;
 	}
-
-	public Token(String tipo, String nombre, int linea, String valor) {
-		super();
-		this.tipo = tipo;
-		this.nombre = nombre;
-		this.linea = linea;
-		this.valor = valor;
-	}
-
-	public String getTipo() {
+	public int getTipo() {
 		return tipo;
 	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public int getLinea() {
-		return linea;
-	}
-
-	public void setLinea(int linea) {
-		this.linea = linea;
-	}
-
 	public String getValor() {
 		return valor;
 	}
-
+	public int getLinea() {
+		return linea;
+	}
 	public void setValor(String valor) {
 		this.valor = valor;
 	}
-
-
-	@Override
 	public String toString() {
-		return "Token [tipo=" + tipo + ", nombre=" + nombre + ", linea=" + linea + ", valor=" + valor + "]";
+		return "Token: " +types[tipo]+": "+valor;
 	}
-
+	
 }
