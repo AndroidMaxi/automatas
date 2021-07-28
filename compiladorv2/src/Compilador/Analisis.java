@@ -889,7 +889,7 @@ public class Analisis
 		dataCodigo.add("MAIN            ENDP");
 		// IMPRESION
 		for (String item : dataCodigo) {
-			//System.out.println(item);
+			System.out.println(item);
 		}
 		
 	}
